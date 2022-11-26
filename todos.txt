@@ -1,4 +1,8 @@
 clean my room
 learn python
 go shopping
-cook dinnerwalk the dogs
+cook dinner
+walk the dogs
+refactor the code
+check if refactoring works
+go partying
