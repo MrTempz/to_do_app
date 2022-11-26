@@ -1,4 +1,8 @@
 from functions import MESSAGES, FILEPATH, read_file, write_file
+import time
+
+now = time.strftime("%b %d, %Y %H:%M:%S")
+print(f"It's {now}")
 
 todos = read_file(FILEPATH)
 
@@ -7,7 +11,7 @@ while True:
 
     if user_action.startswith('add'):
         todo = user_action[4:]
-        todos.append(todo)
+        todos.append(todo + '\n')
         write_file(todos, FILEPATH)
 
     elif user_action.startswith('edit'):

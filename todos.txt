@@ -1,3 +1,4 @@
 clean my room
 learn python
-go shoppingcook dinner
+go shopping
+cook dinnerwalk the dogs
