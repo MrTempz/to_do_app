@@ -7,21 +7,21 @@ MESSAGES = {'input':'Type add, show, edit, complete or exit: ',
 FILEPATH = 'App1\\todos.txt'
 
 
-def write_file(todos_list, filepath=FILEPATH):
+def save_todos(todos_list, filepath=FILEPATH):
     """Write to-do list into a file."""
     with open(filepath, 'w') as f:
         f.writelines(todos_list)
 
-def read_file(filepath=FILEPATH):
+def get_todos(filepath=FILEPATH):
     """Read to-do list from a file into a variable."""
     with open(filepath, 'r') as f:
         todos_list = f.readlines()
         return todos_list
 
-def add(todos, user_params):
-    todo = user_params
+def add(todos, new_todo):
+    todo = new_todo
     todos.append(todo + '\n')
-    write_file(todos, FILEPATH)
+    save_todos(todos, FILEPATH)
 
 def validate_todo_no(todos, todo_no, action):
     try:
@@ -34,20 +34,15 @@ def validate_todo_no(todos, todo_no, action):
         print(f"Could not {action} todo No. {todo_no+1}, max possible todo No. is {len(todos)}")
         return None
 
-def edit(todos, user_params):
-    todo_no, new_todo = user_params.split(' ', 1)
-    todo_no = validate_todo_no(todos, todo_no, 'edit')
-    if todo_no:
-        todos[todo_no] = new_todo + '\n'
-        write_file(todos, FILEPATH)
+def edit(todos, todo_no, new_todo):
+    todos[todo_no] = new_todo + '\n'
+    save_todos(todos, FILEPATH)
 
-def complete(todos, user_params):
-    todo_no = validate_todo_no(todos, user_params, 'complete')
-    if todo_no:
-        todos.pop(todo_no)
-        write_file(todos, FILEPATH)
+def complete(todos, todo_no):
+    todos.pop(todo_no)
+    save_todos(todos, FILEPATH)
 
-def show(todos, user_params):
+def show(todos):
     for index, todo in enumerate(todos):
         print(f'{index + 1} - {todo.capitalize().strip()}')
 
@@ -55,4 +50,4 @@ ACTIONS = {'add':add, 'edit':edit, 'complete':complete, 'show':show}
 
 if __name__ == "__main__":
     print("This is functions.py")
-    print(read_file())
+    print(get_todos())

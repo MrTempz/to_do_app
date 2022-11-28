@@ -1,8 +1,4 @@
 clean my room
 learn python
-go shopping
-cook dinner
 walk the dogs
-refactor the code
-check if refactoring works
-go partying
+refactor the code yet again
