@@ -1,7 +1,6 @@
 clean my room
 learn python
 walk the dogs
-refactor the code again and again
+refactor the code again
 walk the dogs soon
-refactor the code again
-refactor the code again
+walk the dogs soonish
