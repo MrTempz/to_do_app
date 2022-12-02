@@ -1,6 +1,7 @@
 import functions
 import PySimpleGUI as sg
 import time
+from os import path
 
 GUI_font = ('Helvatica', 20)
 sg.theme('DarkBlack1')
@@ -13,12 +14,16 @@ label = sg.Text('Type in a to-do')
 layout.append([label])
 
 input_box = sg.InputText(tooltip='Enter a to-do', key='todo')
-add_button = sg.Button('Add')
+#add_button = sg.Button('Add')
+add_button = sg.Button(size=2, image_source=path.join(path.curdir, 'App1', 'add.png'),
+    mouseover_colors='LightBlue2', tooltip='Press to add new to-do', key='Add')
 layout.append([input_box, add_button])
 
 todos_box = sg.Listbox(values=functions.get_todos(), key='todos', enable_events=True, size=[45,10])
 edit_button = sg.Button('Edit')
-complete_button = sg.Button('Complete')
+#complete_button = sg.Button('Complete')
+complete_button = sg.Button(size=2, image_source=path.join(path.curdir, 'App1', 'complete.png'),
+    mouseover_colors='LightBlue2', tooltip='Press to complete selected to-do', key='Complete')
 layout.append([todos_box, edit_button, complete_button])
 
 exit_button = sg.Button('Exit')
