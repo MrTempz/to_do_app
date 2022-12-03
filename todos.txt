@@ -1,6 +1,2 @@
 walk the dogs
-remake todo into OOP in progress
 think about dinner
-asd
-learn python
-asdasdasdasda

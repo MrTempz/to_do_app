@@ -41,6 +41,10 @@ class Todos():
         except IndexError:
             print('To-do does not exist on the list')
     
+    def bulk_complete(self, todos_to_complete):
+        for todo in todos_to_complete:
+            self.complete_by_element(todo)
+    
 if __name__ == "__main__":
     print("This is todos.py")
     todo_list = Todos()
