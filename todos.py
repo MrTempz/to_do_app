@@ -8,7 +8,7 @@ class Todos():
     def save_todos(self):
         """Write to-do list into a file."""
         with open(self.filepath, 'w') as f:
-            f.writelines(self.todos_list)
+            f.writelines(self.todos)
 
     def get_todos(self):
         """Read to-do list from a file into a variable."""
@@ -19,13 +19,27 @@ class Todos():
         self.todos.append(new_todo + '\n')
         self.save_todos()
 
-    def edit(self, todo_no, new_todo):
+    def edit_by_no(self, todo_no, new_todo):
         self.todos[todo_no] = new_todo + '\n'
         self.save_todos()
 
-    def complete(self, todo_no):
+    def edit_by_element(self, todo, new_todo):
+        try:
+            todo_no = self.todos.index(todo)
+            self.edit_by_no(todo_no, new_todo)
+        except IndexError:
+            print('To-do does not exist on the list')
+
+    def complete_by_no(self, todo_no):
         self.todos.pop(todo_no)
         self.save_todos()
+
+    def complete_by_element(self, todo):
+        try:
+            todo_no = self.todos.index(todo)
+            self.complete_by_no(todo_no)
+        except IndexError:
+            print('To-do does not exist on the list')
     
 if __name__ == "__main__":
     print("This is todos.py")
