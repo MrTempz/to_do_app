@@ -4,3 +4,5 @@ walk the dogs
 refactor the code again
 walk the dogs soon
 learn python better yet
+remake todo into OOP
+
